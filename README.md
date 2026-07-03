@@ -1,115 +1,213 @@
-# Nonlinear-Depreciation
-# 📉 Modeling Nonlinear Depreciation with Generalized Additive Models (GAM)
+# 📉 Nonlinear Depreciation Modeling
+### Modeling Commercial Vehicle Depreciation with Generalized Additive Models (GAM)
 
 **Author:** Brandy Horne  
-**Tags:** GAM, Depreciation Modeling, Pricing Strategy, Nonlinear Modeling, Python, Tableau, CRISP-DM
+**Tech Stack:** Python • pyGAM • Machine Learning • Tableau • SQL • Predictive Analytics
 
 ---
 
-## 🎯 The Business Problem
-
-Traditional linear models often fall short when predicting how product value depreciates over time or usage — especially when that relationship is **nonlinear**, with depreciation accelerating or leveling off at certain thresholds.
-
-This project focused on developing a model to capture the **nonlinear impact of mileage on resale price** for commercial fleet vehicles, with the goal of supporting **data-informed pricing decisions**.
+<p align="center">
+  <img src="images/Values.png" width="1000">
+</p>
 
 ---
 
-## 🔍 Business & Domain Understanding
+# 🚀 Project Overview
 
-Pricing teams needed a reliable model that:
+Commercial vehicle depreciation is rarely linear. Traditional regression models often assume a constant rate of value loss, but real-world assets experience changing depreciation patterns throughout their lifecycle.
 
-- Captured **nonlinear depreciation trends** across mileage bands  
-- Provided **intuitive, explainable outputs**  
-- Could adjust pricing recommendations for upcoming resale opportunities  
+This project applies **Generalized Additive Models (GAMs)** to model the nonlinear relationship between vehicle mileage and resale value. By allowing flexible spline functions instead of fixed linear relationships, the model captures complex depreciation behavior while remaining highly interpretable for business stakeholders.
 
-Key insight: The value of commercial assets doesn’t decrease at a constant rate. It often follows **threshold behavior** — steep drops followed by plateaus.
+The resulting model provides pricing teams with more accurate resale estimates and supports strategic inventory planning, buyback decisions, and long-term asset valuation.
 
 ---
 
-## 🧠 Data Understanding
+# ⭐ Key Features
 
-Sourced and evaluated datasets including:
-
-- **Asset specs**: model type, age, drivetrain, warranty status  
-- **Usage**: mileage, usage duration, service frequency  
-- **Pricing data**: historical resale values, condition at sale  
-
-Exploratory analysis revealed **non-constant slopes** and clear inflection points in mileage vs. price — ideal for GAMs.
-
----
-
-## 🧹 Data Preparation
-
-- Cleaned and validated pricing data
-- Standardized mileage and age features
-- Engineered features like:
-  - Mileage buckets (e.g., 0–50k, 50–100k…)
-  - Age-adjusted residual value
-- Detected and excluded outliers using IQR and Z-scores
+- Nonlinear depreciation modeling
+- Smooth spline regression
+- Mileage-based pricing predictions
+- Feature engineering
+- Explainable machine learning
+- Tableau executive dashboards
+- Pricing optimization
+- Model interpretation
+- Business-focused analytics
 
 ---
 
-## 🧪 Modeling: Generalized Additive Model (GAM)
+# 🎯 Business Problem
 
-I implemented a **GAM** using the `pyGAM` library to allow smooth, flexible fits without losing interpretability.
+Commercial vehicles do not depreciate at a constant rate throughout their lifecycle. Large value declines often occur early in ownership before stabilizing, while different vehicle classes exhibit unique depreciation patterns.
 
-### Why GAM?
-- Captures **nonlinear relationships** with smooth splines
-- Retains **explainability** for stakeholder communication
-- Handles **interactions** between variables like mileage and model type
-
-**Model Highlights:**
-- Smooth function applied to mileage to reveal diminishing return curve
-- Factor smooth interaction for vehicle class × mileage
-- Cross-validation to prevent overfitting
+The objective of this project was to develop a predictive model capable of capturing these nonlinear behaviors to improve pricing accuracy and support better business decisions.
 
 ---
 
-## 📊 Evaluation
+# 🔍 Business Understanding
 
-- Evaluated using **Adjusted R²**, RMSE, and visual inspection of fit curves
-- Compared performance against baseline linear and polynomial models
-- Visualized spline functions to highlight key depreciation patterns
+Successful pricing required understanding multiple business drivers influencing vehicle value, including:
 
-**Findings:**
-- Depreciation was steepest in the first 100k miles, then leveled
-- Certain vehicle types showed nonlinear “elbows” in value curves
-- GAM outperformed linear models by 20% in RMSE and had superior interpretability
+- Vehicle age
+- Mileage
+- Usage patterns
+- Service history
+- Vehicle class
+- Warranty status
+- Historical market conditions
+- Regional demand
 
----
-
-## 📈 Deployment
-
-- Model outputs integrated into pricing dashboards (Tableau)
-- Enabled pricing team to visualize predicted price across mileage bands
-- Used quarterly to guide buyback and trade-in pricing decisions
+The goal was to create an interpretable model that pricing teams could confidently use without sacrificing predictive performance.
 
 ---
 
-## ✅ Results
+# 📂 Data Sources
 
-- Improved pricing confidence through model-backed benchmarks
-- Enhanced communication of value-loss patterns to non-technical stakeholders
-- Influenced new policy around asset lifecycle value projection
+Historical datasets included:
 
----
+- Vehicle specifications
+- Mileage history
+- Historical resale prices
+- Customer purchasing behavior
+- Service and maintenance records
+- Market pricing data
 
-## 🛠️ Tools Used
-
-- **Languages:** Python, SQL  
-- **Libraries:** `pyGAM`, `pandas`, `NumPy`, `Matplotlib`, `Seaborn`  
-- **Visualization:** Tableau  
-- **Techniques:** Spline Regression, Feature Engineering, Model Interpretation
+Feature engineering transformed raw operational data into variables representing vehicle lifecycle behavior and depreciation trends.
 
 ---
 
-## 💡 Key Takeaways
+# 🧹 Data Preparation
 
-1. GAMs offer a perfect balance of flexibility and transparency for business modeling.
-2. Understanding where depreciation changes slope can lead to smarter pricing strategies.
-3. The best models are not just accurate—they’re explainable to the people who need them most.
+Significant preprocessing was completed before model development.
+
+Activities included:
+
+- Data cleaning
+- Missing value treatment
+- Outlier removal
+- Mileage standardization
+- Feature scaling
+- Mileage bucket creation
+- Age-adjusted residual value calculation
+- Interaction feature engineering
+
+The final dataset was optimized for nonlinear modeling while maintaining interpretability.
 
 ---
 
-**Contact:**  
-[GitHub](https://github.com/brandyanalytics) | [LinkedIn](https://linkedin.com/in/brandyhorne01) | Brandyhorne01@gmail.com  
+# 🤖 Modeling Approach
+
+## Baseline Models
+
+Traditional linear and polynomial regression models were developed to establish performance benchmarks.
+
+Evaluation highlighted their inability to accurately capture changing depreciation rates across mileage ranges.
+
+---
+
+## Generalized Additive Model (GAM)
+
+The final solution utilized **pyGAM** to model smooth nonlinear relationships between mileage and resale value.
+
+Advantages included:
+
+- Flexible spline functions
+- Explainable predictions
+- Smooth nonlinear relationships
+- Reduced overfitting
+- Strong business interpretability
+
+The model also captured interactions between vehicle class and mileage to better represent different depreciation curves.
+
+---
+
+# 📈 Model Evaluation
+
+Model performance was evaluated using:
+
+- Adjusted R²
+- RMSE
+- MAE
+- Cross-validation
+- Residual analysis
+- Visual spline inspection
+
+Compared with baseline regression models, the GAM improved RMSE by approximately **20%** while providing significantly more interpretable pricing curves.
+
+---
+
+# 📊 Tableau Dashboard
+
+Model outputs were integrated into an interactive Tableau dashboard that enabled pricing analysts and leadership teams to explore depreciation trends.
+
+### Dashboard Features
+
+- Predicted resale values
+- Mileage-based pricing curves
+- Vehicle class comparisons
+- Depreciation trend analysis
+- Interactive filtering
+- Executive KPI reporting
+
+<p align="center">
+  <img src="images/tableau-dashboard.png" width="900">
+</p>
+
+---
+
+# 📈 Business Impact
+
+The solution enabled stakeholders to:
+
+- Improve resale pricing accuracy
+- Better understand depreciation behavior
+- Support buyback decisions
+- Enhance asset valuation strategies
+- Increase pricing confidence
+- Improve communication with non-technical stakeholders
+
+---
+
+# 🛠️ Technology Stack
+
+### Languages
+
+- Python
+- SQL
+
+### Machine Learning
+
+- pyGAM
+- Scikit-Learn
+
+### Data Processing
+
+- Pandas
+- NumPy
+- SciPy
+
+### Visualization
+
+- Tableau
+- Matplotlib
+- Seaborn
+
+---
+
+# 💡 Key Takeaways
+
+This project demonstrates how Generalized Additive Models provide an ideal balance between predictive accuracy and interpretability for business forecasting problems.
+
+By replacing rigid linear assumptions with smooth nonlinear functions, the model more accurately represents real-world depreciation behavior while remaining intuitive enough for pricing teams to understand and trust.
+
+The project highlights the importance of combining statistical modeling, feature engineering, and business intelligence to transform complex operational data into actionable pricing insights.
+
+---
+
+## 📬 Connect
+
+**Brandy Horne**
+
+- GitHub: https://github.com/brandyhorne01
+- LinkedIn: https://linkedin.com/in/brandyhorne01
+- Email: brandyhorne01@gmail.com
