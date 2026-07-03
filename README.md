@@ -209,5 +209,5 @@ The project highlights the importance of combining statistical modeling, feature
 **Brandy Horne**
 
 - GitHub: https://github.com/brandyhorne01
-- LinkedIn: https://linkedin.com/in/brandyhorne01
+- LinkedIn: https://www.linkedin.com/in/brandy-horne-20841426/
 - Email: brandyhorne01@gmail.com
